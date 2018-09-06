@@ -165,8 +165,10 @@ let listBoxRender = (function () {
           str += `<a class="threeBox" href="##">
           <h2>${title}</h2>
           <div class="threePic">
-            <img src="${img}"
-                alt="">
+            <div>
+              <img src="${img}"
+            alt="">
+            </div>
           </div>
           <div class="commentBox ${mark ? 'mark' : null}">
             ${mark? `<mark>${mark}</mark>`:'' }
@@ -182,7 +184,6 @@ let listBoxRender = (function () {
   }
 
   function getMore(url, cb) {
-    console.log('getmore');
     getData(url, function (data) {
       let str = '',
         $listBox = $('.listBox');
@@ -264,8 +265,10 @@ let listBoxRender = (function () {
             str += `<a class="threeBox" href="##">
           <h2>${title}</h2>
           <div class="threePic">
-            <img src="${img}"
-                alt="">
+            <div>
+              <img src="${img}"
+            alt="">
+            </div>
           </div>
           <div class="commentBox ${mark ? 'mark' : null}">
             ${mark? `<mark>${mark}</mark>`:'' }
@@ -294,7 +297,6 @@ let listBoxRender = (function () {
           tarT = $listBox[0].offsetTop + $listBox[0].offsetHeight,
           winH = document.documentElement.clientHeight;
 
-        console.log(tarT);
         if (scrT >= tarT - winH && isBinding === false) {
           isBinding = true;
           getMore('./data/list.json', function () {
