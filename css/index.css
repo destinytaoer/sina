@@ -637,6 +637,9 @@ body {
   width: 100%;
   overflow-x: hidden;
 }
+body {
+  background: #e8e8e8;
+}
 .header {
   background: linear-gradient(40deg, #838dfb, #8191f8 10%, #4fa2f1 50%, #1eabf6);
 }
@@ -684,18 +687,21 @@ body {
   color: #fff;
   margin-bottom: 0.26666667rem;
 }
-.tabBox {
+.tabBox,
+.fixed {
   width: 100%;
   background: #fff;
 }
-.tabBox ul {
+.tabBox ul,
+.fixed ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin: 0 0.26666667rem;
   border-bottom: 1px solid #ececec;
 }
-.tabBox ul li {
+.tabBox ul li,
+.fixed ul li {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -708,11 +714,13 @@ body {
   color: #1a1a1a;
   padding: 0 0.13333333rem;
 }
-.tabBox ul li.current {
+.tabBox ul li.current,
+.fixed ul li.current {
   font-weight: 900;
   color: #008af5;
 }
-.tabBox ul li.current::after {
+.tabBox ul li.current::after,
+.fixed ul li.current::after {
   content: '';
   display: block;
   width: 0.66666667rem;
@@ -720,22 +728,27 @@ body {
   position: absolute;
   background: #008af5;
 }
-.tabBox ul li:nth-child(1) {
+.tabBox ul li:nth-child(1),
+.fixed ul li:nth-child(1) {
   text-align: left;
 }
-.tabBox ul li:nth-child(1).current::after {
+.tabBox ul li:nth-child(1).current::after,
+.fixed ul li:nth-child(1).current::after {
   bottom: -0.02666667rem;
   left: 0.73333333rem;
 }
-.tabBox ul li:nth-child(2).current::after {
+.tabBox ul li:nth-child(2).current::after,
+.fixed ul li:nth-child(2).current::after {
   bottom: -0.02666667rem;
   left: 50%;
   margin-left: -0.33333333rem;
 }
-.tabBox ul li:nth-child(3) {
+.tabBox ul li:nth-child(3),
+.fixed ul li:nth-child(3) {
   text-align: right;
 }
-.tabBox ul li:nth-child(3).current::after {
+.tabBox ul li:nth-child(3).current::after,
+.fixed ul li:nth-child(3).current::after {
   bottom: -0.02666667rem;
   right: 0.73333333rem;
 }
@@ -762,6 +775,7 @@ body {
 }
 .newsBox {
   padding: 0.26666667rem 0.26666667rem 0;
+  background: #fff;
 }
 .newsBox .banner {
   overflow: hidden;
@@ -806,6 +820,7 @@ body {
 }
 .newsBox .listBox {
   background: #fff;
+  min-height: 100vh;
 }
 .newsBox .listBox a {
   display: -webkit-box;
@@ -932,6 +947,128 @@ body {
 .newsBox .listBox a.threeBox .commentBox span {
   padding-left: 0.10666667rem;
   font-style: normal;
+}
+.picBox {
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+.picBox ul {
+  width: 2.29333333rem;
+  width: 50%;
+  padding-left: 0.26666667rem;
+  float: left;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.picBox ul:nth-child(2) {
+  padding-right: 0.26666667rem;
+}
+.picBox ul li {
+  margin-top: 0.26666667rem;
+  background: #fff;
+  overflow: hidden;
+}
+.picBox ul li figure {
+  position: relative;
+  margin: 0;
+  background: #f2f2f2;
+}
+.picBox ul li figure img {
+  width: 100%;
+  height: auto;
+}
+.picBox ul li figure mark {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 0.05333333rem 0.08rem;
+  line-height: 1.1;
+  background: rgba(0, 0, 0, 0.4);
+  font-size: 0.26666667rem;
+  letter-spacing: 0.02666667rem;
+  text-align: center;
+  color: #fff;
+}
+.picBox ul li h3 {
+  margin: 0.26666667rem;
+  height: 1.01333333rem;
+  line-height: 0.50666667rem;
+  font-size: 0.37333333rem;
+  color: #1a1a1a;
+  font-weight: 400;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.videoBox {
+  min-height: 100vh;
+}
+.videoBox ul li {
+  width: 100%;
+  background: #fff;
+  margin-bottom: 0.26666667rem;
+}
+.videoBox ul li a {
+  display: block;
+  padding-bottom: 0.26666667rem;
+  margin: 0 0.26666667rem;
+  overflow: hidden;
+}
+.videoBox ul li a figure {
+  position: relative;
+  margin: 0.24rem 0 0.21333333rem;
+}
+.videoBox ul li a figure img {
+  width: 100%;
+}
+.videoBox ul li a figure time {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 1.33333333rem 0.26666667rem 0.21333333rem;
+  line-height: 1.1;
+  font-size: 0.32rem;
+  text-align: right;
+  color: #fff;
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.4)));
+  background: linear-gradient(top, transparent, rgba(0, 0, 0, 0.4));
+}
+.videoBox ul li a figure i {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+  width: 1.46666667rem;
+  height: 1.46666667rem;
+  line-height: 1.46666667rem;
+  font-size: 0.85333333rem;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.4);
+}
+.videoBox ul li a h3 {
+  line-height: 0.64rem;
+  font-size: 0.45333333rem;
+  color: #1a1a1a;
+  font-weight: 400;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.footer {
+  margin-top: 0.26666667rem;
 }
 .footer .nav_1 {
   display: -webkit-box;

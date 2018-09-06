@@ -17,6 +17,9 @@ html, body {
   width: 100%;
   overflow-x: hidden;
 }
+body {
+  background: #e8e8e8;
+}
 
 .header {
   background: linear-gradient(40deg, #838dfb, #8191f8 10%, #4fa2f1 50%, #1eabf6);
@@ -66,7 +69,7 @@ html, body {
   }
 }
 
-.tabBox {
+.tabBox, .fixed {
   width: 100%;
   background: #fff;
   ul {
@@ -155,6 +158,7 @@ html, body {
 
 .newsBox {
   padding: 20/@r 20/@r 0;
+  background: #fff;
   .banner {
     overflow: hidden;
     height: 340/@r;
@@ -195,6 +199,7 @@ html, body {
   }
   .listBox {
     background: #fff;
+    min-height: 100vh;
     a {
       display: flex;
       padding: 22/@r 0;
@@ -291,7 +296,131 @@ html, body {
   }
 }
 
+.picBox {
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  ul {
+    width: 172/@r;
+    width: 50%;
+    padding-left: 20/@r;
+
+    &:nth-child(2) {
+      padding-right: 20/@r;
+    }
+    .lt;
+    box-sizing: border-box;
+    li {
+      margin-top: 20/@r;
+      background: #fff;
+      overflow: hidden;
+      figure {
+        position: relative;
+        margin: 0;
+        background: #f2f2f2;
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+
+        mark {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          padding: 4/@r 6/@r;
+          line-height: 1.1;
+          background: rgba(0,0,0,.4);
+          font-size: 20/@r;
+          letter-spacing: 2/@r;
+          text-align: center;
+          color: #fff;
+        }
+      }
+      h3 {
+        margin: 20/@r;
+        height: 76/@r;
+        line-height: 38/@r;
+        font-size: 28/@r;
+        color: @fontColor;
+        font-weight: 400;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}
+
+.videoBox {
+  min-height: 100vh;
+  ul {
+    li {
+      width: 100%;
+      background: #fff;
+      margin-bottom: 20/@r;
+      a {
+        display: block;
+        padding-bottom: 20/@r;
+        margin: 0 20/@r;
+        overflow: hidden;
+        figure {
+          position: relative;
+          margin: 18/@r 0 16/@r;
+          img {
+            width: 100%;
+          }
+          time {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 100/@r 20/@r 16/@r;
+            line-height: 1.1;
+            font-size: 24/@r;
+            text-align: right;
+            color:#fff;
+            background: linear-gradient(top,transparent,rgba(0,0,0,.4));
+          }
+          i {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            margin: auto;
+            width: 110/@r;
+            height: 110/@r;
+            line-height: 110/@r;
+            font-size: 64/@r;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            border: 1px solid hsla(0,0%,100%,.3);
+            background: rgba(0,0,0,.4);
+          }
+        }
+        h3 {
+          line-height: 48/@r;
+          font-size: 34/@r;
+          color: @fontColor;
+          font-weight: 400;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+}
+
 .footer {
+  margin-top: 20/@r;
   .nav_1 {
     display: flex;
     flex-wrap: wrap;
