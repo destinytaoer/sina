@@ -19,6 +19,30 @@ function getData(url, cb) {
   });
 }
 
+//=> lazyLoad
+function loadImg(ele) {
+  if (ele.loaded) return;
+  let sT = document.documentElement.scrollTop,
+    cH = document.documentElement.clientHeight,
+    tarT = $(ele).offset().top;
+  if (sT + cH > tarT) {
+    $(ele).addClass('load');
+    ele.loaded = true;
+  }
+};
+
+//=> LOAD-IMG-ALL：所有图片的懒加载（调用前面的单个懒加载方法）
+function loadImgAll(eles) {
+  [].forEach.call(eles, (item) => {
+    loadImg(item);
+  });
+};
+let oImgs = document.getElementsByTagName('img');
+
+window.addEventListener('scroll', function () {
+  loadImgAll(oImgs);
+});
+
 let tabRender = (function () {
   let cur = 0;
 
@@ -117,6 +141,7 @@ let bannerRender = (function () {
     </li>`
     });
     $ul.html(str);
+    loadImgAll(oImgs);
   }
 
   return {
@@ -240,6 +265,7 @@ let newsRender = (function () {
       }
     });
     $listBox.html(str);
+    loadImgAll(oImgs);
   }
 
   function getMore(url, cb) {
@@ -293,12 +319,13 @@ let picRender = (function () {
       let li = document.createElement('li');
       str = `<figure>
           <img src="${img}" realSrc="${img}" alt="">
-          <mark>${num ? num + '张': mark}</mark>
+          <mark>${num ? num + '张' : mark}</mark>
         </figure>
         <h3>${title}</h3>`;
       li.innerHTML = str;
       getMinUl().appendChild(li);
-    })
+    });
+    loadImgAll(oImgs);
   };
 
   //=> GET-MIN-UL：获取页面中高度最小的 UL
@@ -369,6 +396,7 @@ let videoRender = (function () {
       </li>`;
     });
     $videoBox.children('ul').html(str);
+    loadImgAll(oImgs);
   };
 
   function getMore(url, cb) {
